@@ -29,46 +29,53 @@ const questions = [
     {
         type: 'checkbox',
         name: 'license',
-        message: '',
+        message: 'Enter license applied for this project',
     },
     {
         type: 'input',
-        name: 'title',
-        message: 'Name project',
+        name: 'require',
+        message: 'Enter project dependencies here',
     },
     {
         type: 'input',
-        name: 'title',
-        message: 'Name project',
+        name: 'features',
+        message: 'What are some features of this application',
     },
     {
         type: 'input',
-        name: 'title',
-        message: 'Name project',
+        name: 'usage',
+        message: 'Enter languages/technologies with ths project.',
     },
     {
         type: 'input',
-        name: 'title',
-        message: 'Name project',
+        name: 'email',
+        message: 'Enter email address',
     },
     {
         type: 'input',
-        name: 'title',
-        message: 'Name project',
+        name: 'contributors',
+        message: 'List contributors',
     },
     {
         type: 'input',
-        name: 'title',
-        message: 'Name project',
+        name: 'test',
+        message: 'provide information if applicable',
     },
 ];
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions).then((responses) => {
+        console.log('Professional README.md File...');
+        writeToFile('./Leo-Leonis/README.md',generateMarkdown({...responses}));
+    });
+}
 
 // Function call to initialize app
 init();
