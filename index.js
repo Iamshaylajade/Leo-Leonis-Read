@@ -1,6 +1,6 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
-const inquirer =('inquirer');
+const inquirer = require('inquirer');
 const path = require('path');
 const generateMarkdown = require('./utils/generateMarkdown');
 
@@ -30,6 +30,7 @@ const questions = [
         type: 'checkbox',
         name: 'license',
         message: 'Enter license applied for this project',
+        choices: ['MIT', 'Apache', 'GPL', 'None'],
     },
     {
         type: 'input',
